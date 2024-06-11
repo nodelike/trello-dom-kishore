@@ -1,4 +1,4 @@
-# Solution to todo-app drill
+# Solution to trello-dom drill
 
 ![](./screenshot.png)
 
