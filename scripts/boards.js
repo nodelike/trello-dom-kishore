@@ -13,16 +13,8 @@ function renderBoards(boards){
             boardDiv.classList.add('bg-white', 'w-full', 'h-32', 'flex', 'items-center', 'justify-center', 'shadow-center', 'rounded-lg', 'cursor-pointer', 'font-semibold', 'hover:scale-110', 'duration-100', 'border-4', 'border-black','dark:bg-dark', 'dark:text-lime', 'dark:border-lime', 'dark:shadow-darkcenter');
             boardDiv.innerText = board.name;
             boardDiv.addEventListener('click', () => {
-                const urlParams = new URLSearchParams(window.location.search);
-                const apiKey = urlParams.get('apiKey');
-                const token = urlParams.get('token');
-                if (!apiKey || !token) {
-                    showToast.error('API Key and Token are required');
-                    return;
-                }
-                window.location.href = `lists.html?id=${board.id}&apiKey=${apiKey}&token=${token}`;
+                window.location.href = `lists.html?id=${board.id}`
             })
-            
     
             boardsContainer.appendChild(boardDiv);
         })     
