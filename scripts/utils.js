@@ -51,7 +51,6 @@ export const showToast = (() => {
             messageDiv.innerText = message;
             setTimeout(() => {
                 document.body.removeChild(toastDiv);
-                toastDiv.classList.add('hidden');
                 toastDiv = null;
             }, 2000)
         },
@@ -62,7 +61,6 @@ export const showToast = (() => {
             setTimeout(() => {
                 document.body.removeChild(toastDiv);
                 toastDiv = null;
-                toastDiv.classList.add('hidden');
             }, 2000)
         }
     }

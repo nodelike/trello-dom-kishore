@@ -39,8 +39,7 @@ async function renderCards(listId, container){
     }
 }
 
-
-function renderLists(lists){
+async function renderLists(lists){
     try {
         let listContainer = document.getElementById('lists-container');
         listContainer.innerHTML = "";
@@ -166,11 +165,16 @@ async function handleCreateList(event, boardId){
     }
 }
 
-
-
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
+    let apiKey = urlParams.get('apiKey');
+    let token = urlParams.get('token');
     let boardId = urlParams.get('id');
+
+    if (!apiKey || !token) {
+        showToast.error('API Key and Token are required');
+        return;
+    }
 
     toggleLoader("show");
     let lists = await getLists(boardId);
@@ -179,12 +183,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('toggle-theme').addEventListener('click', handleTheme);
     document.getElementById('go-back').addEventListener('click', () => {
-        window.location.href = "index.html"
+        window.location.href = `boards.html?${urlParams.toString()}`;
     })
     document.getElementById('open-create-list').addEventListener('click', toggleCreateListForm)
     document.getElementById('close-create-list').addEventListener('click', toggleCreateListForm);
     document.getElementById('create-list').addEventListener('submit', (event) => {
-        console.log(boardId)
         handleCreateList(event, boardId);
     });
-})
+});
