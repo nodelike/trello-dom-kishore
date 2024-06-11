@@ -1,0 +1,32 @@
+@keyframes bounce {
+    0% {
+        transform: translate(0px, -60px);
+    }
+    40% {
+        transform: translate(0px, -110px);
+    }
+    100% {
+        transform: translate(0px, -50px);
+    }
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(255, 103, 0);
+    border-radius: 50%;
+    animation: bounce 1s infinite;
+    border: 2px solid black;
+}
+
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
